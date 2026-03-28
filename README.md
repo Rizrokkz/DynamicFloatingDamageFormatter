@@ -75,12 +75,6 @@ It supports:
 - `KINDS` for per-damage styling (label, UI asset, dot behavior)
 - `ALIASES` for mapping custom cause names to known kinds
 
-## Build the Distribution
-
-```powershell
-.\gradlew.bat dynamicFormatterDist
-```
-
 Output folder:
 
 `dist/DynamicFloatingDamageFormatter/`
