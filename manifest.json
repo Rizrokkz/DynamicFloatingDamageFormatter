@@ -1,0 +1,20 @@
+{
+  "Group": "irai.mod.dynamicfloatingdamageformatter",
+  "Name": "Dynamic Floating Damage Formatter",
+  "Version": "1.0.0",
+  "Description": "Standalone API for configurable floating damage numbers.",
+  "Authors": [
+    {
+      "Name": "iRaiden",
+      "Url": "https://github.com/Rizrokkz"
+    }
+  ],
+  "Website": "",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "LoadBefore": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": false,
+  "SubPlugins": [],
+  "Main": "irai.mod.DynamicFloatingDamageFormatter.DynamicFloatingDamageFormatterPlugin"
+}

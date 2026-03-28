@@ -1,0 +1,24 @@
+{
+  "Type": "CombatText",
+"HitboxOffset": {
+    "X": 0.0,
+    "Y": 0.0
+  },
+  "RandomPositionOffsetRange": {
+    "X": {
+      "Min": -0.2,
+      "Max": 0.2
+    },
+    "Y": {
+      "Min": 0.1,
+      "Max": 0.3
+    }
+  },
+  "ViewportMargin": 0.0,
+  "Duration": 0.8,
+  "HitAngleModifierStrength": 1.0,
+  "FontSize": 24.0,
+  "TextColor": "#8000FF",
+  "AnimationEvents": []
+}
+
