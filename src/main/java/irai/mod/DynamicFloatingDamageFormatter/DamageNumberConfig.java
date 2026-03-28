@@ -1,7 +1,6 @@
 package irai.mod.DynamicFloatingDamageFormatter;
 
 import static com.hypixel.hytale.codec.Codec.STRING_ARRAY;
-
 import com.hypixel.hytale.codec.KeyedCodec;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
 
@@ -43,16 +42,16 @@ public class DamageNumberConfig {
     // Format: "KIND|key=value|key=value"
     // Supported keys: label, format, color, ui, uiAlt, dot, rounding, precision, min, style, labelByDefault
     private String[] kindEntries = new String[] {
-            "FLAT|label=|format={amount}",
-            "CRITICAL|label=Critical|color=#FF5555|ui=SocketReforge_CombatText_Critical",
-            "ICE|label=Ice|color=#55FFFF|ui=SocketReforge_CombatText_Ice",
-            "BURN|label=Burn|color=#FFAA00|ui=SocketReforge_CombatText_Burn|uiAlt=SocketReforge_CombatText_Burn_Alt|dot=true",
-            "BLEED|label=Bleed|color=#AA55FF|ui=SocketReforge_CombatText_Bleed|uiAlt=SocketReforge_CombatText_Bleed_Alt|dot=true",
-            "POISON|label=Poison|color=#008700|ui=SocketReforge_CombatText_Poison|uiAlt=SocketReforge_CombatText_Poison_Alt|dot=true",
-            "SHOCK|label=Shock|color=#FFFF55|ui=SocketReforge_CombatText_Shock",
-            "WATER|label=Water|color=#5555FF|ui=SocketReforge_CombatText_Water",
-            "VOID|label=Void|color=#8000FF|ui=SocketReforge_CombatText_Void",
-            "HEAL|label=Heal|color=#55FF55|ui=SocketReforge_CombatText_Heal"
+            "FLAT|label=|format={amount}|color=#FFFFFF|ui=SocketReforge_CombatText_Flat",
+            "CRITICAL|label=|color=#FF5555|ui=SocketReforge_CombatText_Critical",
+            "ICE|label=|color=#55FFFF|ui=SocketReforge_CombatText_Ice",
+            "BURN|label=|color=#FFAA00|ui=SocketReforge_CombatText_Burn|uiAlt=SocketReforge_CombatText_Burn_Alt|dot=true",
+            "BLEED|label=|color=#AA55FF|ui=SocketReforge_CombatText_Bleed|uiAlt=SocketReforge_CombatText_Bleed_Alt|dot=true",
+            "POISON|label=|color=#008700|ui=SocketReforge_CombatText_Poison|uiAlt=SocketReforge_CombatText_Poison_Alt|dot=true",
+            "SHOCK|label=|color=#FFFF55|ui=SocketReforge_CombatText_Shock",
+            "WATER|label=|color=#5555FF|ui=SocketReforge_CombatText_Water",
+            "VOID|label=|color=#8000FF|ui=SocketReforge_CombatText_Void",
+            "HEAL|label=|color=#55FF55|ui=SocketReforge_CombatText_Heal"
     };
 
     // Format: "alias=KIND"
