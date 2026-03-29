@@ -3,12 +3,12 @@
 Standalone, configurable floating damage number API for Hytale mods.
 
 This repo ships:
-- A small formatting API (`DamageNumbers`) you can call from your own damage logic.
-- Example UI + particle assets for combat text and FloatingDamage-style particles.
+- A small formatting API (DamageNumbers) you can call from your own damage logic.
+- Example UI and particle assets for combat text and FloatingDamage-style particles.
 - Config and tutorials to customize kinds, colors, formats, and assets.
 
-If you want automatic damage-event hooking, you will still need an adapter in your own mod
-(e.g., a DamageEventSystem that calls `DamageNumbers.emit(...)`).
+If you want automatic damage-event hooking, you still need an adapter in your own mod
+(for example, a DamageEventSystem that calls DamageNumbers.emit(...)).
 
 ## Quick Install (No Code)
 
@@ -40,20 +40,17 @@ DamageNumbers.kind("POISON")
 ```
 
 ### Emit numbers directly
-
 ```java
 DamageNumbers.emit(store, targetRef, amount, "POISON");
 ```
 
 ### If you already have a Damage object
-
 ```java
 DamageNumbers.attachTarget(damage, targetRef);
 DamageNumbers.emit(damage);
 ```
 
 ### Suppress base combat text (optional)
-
 ```java
 DamageNumbers.markSkipCombatText(damage);
 ```
@@ -81,7 +78,6 @@ Each kind can opt into particle-based digits/icons:
 - `particleBackground=FloatingDamage_Background` (optional)
 
 Example:
-
 ```
 CRITICAL|label=|format={amount}|color=#FF5555|ui=SocketReforge_CombatText_Critical|particleFont=FloatingDamage_CRITICAL|particleIcon=FloatingDamage_Icon_Critical
 ```
@@ -102,8 +98,8 @@ This repo includes a full FloatingDamage particle set:
 - Icon textures:
   - `Common/Particles/Textures/CombatText/*.png`
 
-Digits are colored per kind by **baked colors** in the spawners. If you change a kind
-color in the config, update/rebuild the digit spawners accordingly.
+Digits are colored per kind by baked colors in the spawners. If you change a kind
+color in the config, update or rebuild the digit spawners accordingly.
 
 ### Adjusting size
 
@@ -113,30 +109,20 @@ Set it uniformly across all `*_Digit_*.particlespawner` files for consistent siz
 ### Cull distance
 
 All FloatingDamage particle systems include:
-
 ```
 "CullDistance": 128
 ```
-
 Increase this if numbers disappear too far away.
 
 ## Examples and Tutorial
-
 - Examples: `examples/Server/Entity/UI/*.json`
 - Tutorial: `TUTORIAL.md`
 
 ## Troubleshooting
-
-- **JSON fails to load (Unexpected character: feff):**
-  Make sure JSON files are saved as UTF-8 *without BOM*.
-- **Icons not showing:**
-  Ensure the PNGs exist in `Common/Particles/Textures/CombatText/` and the spawner
-  texture path matches.
-- **All digits are the same:**
-  Check `FrameIndex` in each digit spawner matches its digit.
+- JSON fails to load (Unexpected character: feff): ensure UTF-8 no BOM.
+- Icons not showing: ensure PNGs exist in `Common/Particles/Textures/CombatText/`.
+- All digits are the same: check FrameIndex in each digit spawner.
 
 ## Notes
-
-- This repo is API + assets. You still need an adapter in your mod to hook damage events
-  and call `DamageNumbers.emit(...)`.
-- UI JSONs are examples. You can replace them with your own styles.
+- This repo is API and assets. You still need an adapter in your mod to hook damage events and call `DamageNumbers.emit(...)`.
+- UI JSONs are examples; replace with your own styles.
