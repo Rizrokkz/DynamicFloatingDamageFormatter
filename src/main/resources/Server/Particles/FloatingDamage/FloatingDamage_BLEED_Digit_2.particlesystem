@@ -1,0 +1,13 @@
+{
+    "Spawners":  [
+                     {
+                         "SpawnerId":  "FloatingDamage_BLEED_Digit_2",
+                         "PositionOffset":  {
+                                                "Z":  0
+                                            },
+                         "FixedRotation":  false
+                     }
+                 ],
+    "CullDistance":  128,
+    "IsImportant":  false
+}

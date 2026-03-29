@@ -1,0 +1,141 @@
+{
+    "RenderMode":  "BlendAdd",
+    "EmitOffset":  {
+
+                   },
+    "ParticleRotationInfluence":  "Billboard",
+    "LinearFiltering":  false,
+    "LightInfluence":  0,
+    "ParticleRotateWithSpawner":  false,
+    "TrailSpawnerPositionMultiplier":  1,
+    "TrailSpawnerRotationMultiplier":  1,
+    "MaxConcurrentParticles":  50,
+    "ParticleLifeSpan":  {
+                             "Min":  0.7,
+                             "Max":  0.7
+                         },
+    "SpawnRate":  {
+                      "Min":  1,
+                      "Max":  1
+                  },
+    "TotalParticles":  {
+                           "Min":  1,
+                           "Max":  1
+                       },
+    "InitialVelocity":  {
+                            "Speed":  {
+                                          "Min":  0.6,
+                                          "Max":  0.6
+                                      },
+                            "Yaw":  {
+                                        "Min":  0,
+                                        "Max":  0
+                                    },
+                            "Pitch":  {
+                                          "Min":  90,
+                                          "Max":  90
+                                      }
+                        },
+    "ParticleCollision":  {
+                              "BlockType":  "None"
+                          },
+    "Particle":  {
+                     "Texture":  "Particles/FloatingDamage/FloatingDamage.png",
+                     "FrameSize":  {
+                                       "Width":  0,
+                                       "Height":  0
+                                   },
+                     "ScaleRatioConstraint":  "OneToOne",
+                     "Animation":  {
+                                       "0":  {
+                                                 "FrameIndex":  {
+                                                                    "Min":  0,
+                                                                    "Max":  0
+                                                                },
+                                                 "Scale":  {
+                                                               "X":  {
+                                                                         "Min":  1,
+                                                                         "Max":  1
+                                                                     },
+                                                               "Y":  {
+                                                                         "Min":  1,
+                                                                         "Max":  1
+                                                                     }
+                                                           },
+                                                 "Rotation":  {
+                                                                  "X":  {
+                                                                            "Min":  0,
+                                                                            "Max":  0
+                                                                        },
+                                                                  "Y":  {
+                                                                            "Min":  0,
+                                                                            "Max":  0
+                                                                        },
+                                                                  "Z":  {
+                                                                            "Min":  0,
+                                                                            "Max":  0
+                                                                        }
+                                                              },
+                                                 "Opacity":  1,
+                                                 "Color":  "#ffffff"
+                                             },
+                                       "50":  {
+                                                  "Color":  "#ffffff",
+                                                  "Opacity":  1,
+                                                  "Scale":  {
+                                                                "X":  {
+                                                                          "Min":  1,
+                                                                          "Max":  1
+                                                                      },
+                                                                "Y":  {
+                                                                          "Min":  1,
+                                                                          "Max":  1
+                                                                      }
+                                                            }
+                                              },
+                                       "100":  {
+                                                   "Scale":  {
+                                                                 "X":  {
+                                                                           "Min":  1,
+                                                                           "Max":  1
+                                                                       },
+                                                                 "Y":  {
+                                                                           "Min":  1,
+                                                                           "Max":  1
+                                                                       }
+                                                             },
+                                                   "Opacity":  0,
+                                                   "Color":  "#ffffff"
+                                               }
+                                   },
+                     "InitialAnimationFrame":  {
+                                                   "Rotation":  {
+                                                                    "X":  {
+                                                                              "Min":  0,
+                                                                              "Max":  0
+                                                                          },
+                                                                    "Y":  {
+                                                                              "Min":  0,
+                                                                              "Max":  0
+                                                                          },
+                                                                    "Z":  {
+                                                                              "Min":  0,
+                                                                              "Max":  0
+                                                                          }
+                                                                },
+                                                   "Scale":  {
+                                                                 "X":  {
+                                                                           "Min":  0.045,
+                                                                           "Max":  0.045
+                                                                       }
+                                                             },
+                                                   "Opacity":  1,
+                                                   "FrameIndex":  {
+                                                                      "Min":  0,
+                                                                      "Max":  0
+                                                                  }
+                                               },
+                     "SoftParticles":  "Disable"
+                 },
+    "SpawnBurst":  true
+}

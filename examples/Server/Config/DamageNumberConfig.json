@@ -13,7 +13,7 @@
     "ICE|label=|color=#55FFFF|ui=SocketReforge_CombatText_Ice",
     "BURN|label=|color=#FFAA00|ui=SocketReforge_CombatText_Burn|uiAlt=SocketReforge_CombatText_Burn_Alt|dot=true",
     "BLEED|label=|color=#AA55FF|ui=SocketReforge_CombatText_Bleed|uiAlt=SocketReforge_CombatText_Bleed_Alt|dot=true",
-    "POISON|label=|color=#008700|ui=SocketReforge_CombatText_Poison|uiAlt=SocketReforge_CombatText_Poison_Alt|dot=true",
+    "POISON|label=Poison|icon=<item is=" Ingredient_Poison\/>|format={icon}{label} {amount}|color=#008700|ui=SocketReforge_CombatText_Poison|uiAlt=SocketReforge_CombatText_Poison_Alt|dot=true",
     "SHOCK|label=|color=#FFFF55|ui=SocketReforge_CombatText_Shock",
     "WATER|label=|color=#5555FF|ui=SocketReforge_CombatText_Water",
     "VOID|label=|color=#8000FF|ui=SocketReforge_CombatText_Void",
@@ -39,3 +39,4 @@
     "regen=HEAL"
   ]
 }
+

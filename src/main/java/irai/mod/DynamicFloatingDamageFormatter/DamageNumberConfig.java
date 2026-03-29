@@ -40,18 +40,19 @@ public class DamageNumberConfig {
     };
 
     // Format: "KIND|key=value|key=value"
-    // Supported keys: label, format, color, ui, uiAlt, dot, rounding, precision, min, style, labelByDefault
+    // Supported keys: label, icon, iconBg, iconOverlay, format, color, ui, uiAlt, vfx,
+    // particleFont, particleIcon, particleBackground, dot, rounding, precision, min, style, labelByDefault
     private String[] kindEntries = new String[] {
-            "FLAT|label=|format={amount}|color=#FFFFFF|ui=SocketReforge_CombatText_Flat",
-            "CRITICAL|label=|color=#FF5555|ui=SocketReforge_CombatText_Critical",
-            "ICE|label=|color=#55FFFF|ui=SocketReforge_CombatText_Ice",
-            "BURN|label=|color=#FFAA00|ui=SocketReforge_CombatText_Burn|uiAlt=SocketReforge_CombatText_Burn_Alt|dot=true",
-            "BLEED|label=|color=#AA55FF|ui=SocketReforge_CombatText_Bleed|uiAlt=SocketReforge_CombatText_Bleed_Alt|dot=true",
-            "POISON|label=|color=#008700|ui=SocketReforge_CombatText_Poison|uiAlt=SocketReforge_CombatText_Poison_Alt|dot=true",
-            "SHOCK|label=|color=#FFFF55|ui=SocketReforge_CombatText_Shock",
-            "WATER|label=|color=#5555FF|ui=SocketReforge_CombatText_Water",
-            "VOID|label=|color=#8000FF|ui=SocketReforge_CombatText_Void",
-            "HEAL|label=|color=#55FF55|ui=SocketReforge_CombatText_Heal"
+            "FLAT|label=|format={amount}|color=#FFFFFF|ui=SocketReforge_CombatText_Flat|particleFont=FloatingDamage",
+            "CRITICAL|label=|color=#FF5555|ui=SocketReforge_CombatText_Critical|particleFont=FloatingDamage|particleIcon=FloatingDamage_Icon_Critical",
+            "ICE|label=|color=#55FFFF|ui=SocketReforge_CombatText_Ice|particleFont=FloatingDamage|particleIcon=FloatingDamage_Icon_Ice",
+            "BURN|label=|color=#FFAA00|ui=SocketReforge_CombatText_Burn|uiAlt=SocketReforge_CombatText_Burn_Alt|dot=true|particleFont=FloatingDamage|particleIcon=FloatingDamage_Icon_Fire",
+            "BLEED|label=|color=#AA55FF|ui=SocketReforge_CombatText_Bleed|uiAlt=SocketReforge_CombatText_Bleed_Alt|dot=true|particleFont=FloatingDamage|particleIcon=FloatingDamage_Icon_Bleed",
+            "POISON|label=|color=#008700|ui=SocketReforge_CombatText_Poison|uiAlt=SocketReforge_CombatText_Poison_Alt|dot=true|particleFont=FloatingDamage|particleIcon=FloatingDamage_Icon_Poison",
+            "SHOCK|label=|color=#FFFF55|ui=SocketReforge_CombatText_Shock|particleFont=FloatingDamage|particleIcon=FloatingDamage_Icon_Shock",
+            "WATER|label=|color=#5555FF|ui=SocketReforge_CombatText_Water|particleFont=FloatingDamage",
+            "VOID|label=|color=#8000FF|ui=SocketReforge_CombatText_Void|particleFont=FloatingDamage|particleIcon=FloatingDamage_Icon_Void",
+            "HEAL|label=|color=#55FF55|ui=SocketReforge_CombatText_Heal|particleFont=FloatingDamage"
     };
 
     // Format: "alias=KIND"
@@ -83,3 +84,4 @@ public class DamageNumberConfig {
     public void setKindEntries(String[] v) { this.kindEntries = v; }
     public void setAliasEntries(String[] v) { this.aliasEntries = v; }
 }
+

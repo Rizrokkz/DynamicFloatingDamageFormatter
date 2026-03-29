@@ -1,0 +1,54 @@
+{
+    "Type":  "CombatText",
+    "HitboxOffset":  {
+                         "X":  0.0,
+                         "Y":  1.0
+                     },
+    "RandomPositionOffsetRange":  {
+                                      "X":  {
+                                                "Min":  10,
+                                                "Max":  40
+                                            },
+                                      "Y":  {
+                                                "Min":  -30,
+                                                "Max":  30
+                                            }
+                                  },
+    "ViewportMargin":  0.0,
+    "Duration":  0.6,
+    "HitAngleModifierStrength":  1.0,
+    "FontSize":  32.0,
+    "TextColor":  "#AA55FF",
+    "AnimationEvents":  [
+                            {
+                                "Type":  "Position",
+                                "StartAt":  0.0,
+                                "EndAt":  1.0,
+                                "PositionOffset":  {
+                                                       "X":  0.0,
+                                                       "Y":  -0.25
+                                                   }
+                            },
+                            {
+                                "Type":  "Scale",
+                                "StartAt":  0.0,
+                                "EndAt":  0.2,
+                                "StartScale":  0.9,
+                                "EndScale":  1.0
+                            },
+                            {
+                                "Type":  "Scale",
+                                "StartAt":  0.2,
+                                "EndAt":  1.0,
+                                "StartScale":  1.0,
+                                "EndScale":  0.85
+                            },
+                            {
+                                "Type":  "Opacity",
+                                "StartAt":  0.0,
+                                "EndAt":  1.0,
+                                "StartOpacity":  1.0,
+                                "EndOpacity":  0.0
+                            }
+                        ]
+}

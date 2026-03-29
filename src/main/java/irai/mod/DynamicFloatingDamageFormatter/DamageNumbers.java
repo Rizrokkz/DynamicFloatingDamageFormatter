@@ -50,10 +50,17 @@ public final class DamageNumbers {
 
     public record KindStyle(String id,
                             String label,
+                            String icon,
+                            String iconBg,
+                            String iconOverlay,
                             String format,
                             String colorHex,
                             String uiComponentId,
                             String uiComponentAltId,
+                            String vfxId,
+                            String particleFontId,
+                            String particleIconId,
+                            String particleBackgroundId,
                             Boolean dot,
                             Boolean labelByDefault,
                             Rounding rounding,
@@ -72,8 +79,8 @@ public final class DamageNumbers {
 
     static {
         // Ensure baseline FLAT kind exists even before config load.
-        registerKind(new KindStyle(KIND_FLAT, "", "{amount}", null, null, null,
-                false, Boolean.FALSE, null, null, null, null));
+        registerKind(new KindStyle(KIND_FLAT, "", null, null, null, "{amount}", null, null, null,
+                null, null, null, null, false, Boolean.FALSE, null, null, null, null));
     }
 
     private DamageNumbers() {}
@@ -171,8 +178,8 @@ public final class DamageNumbers {
         ALIASES.clear();
         ALT_TOGGLES.clear();
 
-        registerKind(new KindStyle(KIND_FLAT, "", "{amount}", null, null, null,
-                false, Boolean.FALSE, null, null, null, null));
+        registerKind(new KindStyle(KIND_FLAT, "", null, null, null, "{amount}", null, null, null,
+                null, null, null, null, false, Boolean.FALSE, null, null, null, null));
 
         if (config == null) {
             return;
@@ -250,6 +257,11 @@ public final class DamageNumbers {
         return format(amount, style, fmtStyle, includeLabel);
     }
 
+    public static String formatAmountOnly(double amount, String kindId) {
+        KindStyle style = getKindStyle(kindId);
+        return formatAmount(amount, style);
+    }
+
     public static String format(double amount, String kindId, FormatStyle formatStyle, boolean includeLabel) {
         KindStyle style = getKindStyle(kindId);
         FormatStyle fmtStyle = formatStyle != null ? formatStyle : defaults.style();
@@ -260,10 +272,13 @@ public final class DamageNumbers {
         KindStyle resolved = style != null ? style : getKindStyle(KIND_FLAT);
         String amountText = formatAmount(amount, resolved);
         String label = includeLabel ? defaultString(resolved.label()) : "";
+        String icon = defaultString(resolved.icon());
+        String iconBg = defaultString(resolved.iconBg());
+        String iconOverlay = defaultString(resolved.iconOverlay());
         String format = resolved.format() != null && !resolved.format().isBlank()
                 ? resolved.format()
                 : defaults.format();
-        String text = applyTemplate(format, label, amountText, resolved.id());
+        String text = applyTemplate(format, icon, iconBg, iconOverlay, label, amountText, resolved.id());
         return wrap(text, resolved.colorHex(), formatStyle);
     }
 
@@ -303,9 +318,16 @@ public final class DamageNumbers {
         private final String id;
         private String label;
         private String format;
+        private String icon;
+        private String iconBg;
+        private String iconOverlay;
         private String colorHex;
         private String uiComponentId;
         private String uiComponentAltId;
+        private String vfxId;
+        private String particleFontId;
+        private String particleIconId;
+        private String particleBackgroundId;
         private Boolean dot;
         private Boolean labelByDefault;
         private Rounding rounding;
@@ -324,6 +346,41 @@ public final class DamageNumbers {
 
         public KindBuilder format(String value) {
             this.format = value;
+            return this;
+        }
+
+        public KindBuilder icon(String value) {
+            this.icon = value;
+            return this;
+        }
+
+        public KindBuilder iconBg(String value) {
+            this.iconBg = value;
+            return this;
+        }
+
+        public KindBuilder iconOverlay(String value) {
+            this.iconOverlay = value;
+            return this;
+        }
+
+        public KindBuilder vfx(String value) {
+            this.vfxId = value;
+            return this;
+        }
+
+        public KindBuilder particleFont(String value) {
+            this.particleFontId = value;
+            return this;
+        }
+
+        public KindBuilder particleIcon(String value) {
+            this.particleIconId = value;
+            return this;
+        }
+
+        public KindBuilder particleBackground(String value) {
+            this.particleBackgroundId = value;
             return this;
         }
 
@@ -373,8 +430,9 @@ public final class DamageNumbers {
         }
 
         public KindStyle build() {
-            return new KindStyle(id, label, format, colorHex, uiComponentId, uiComponentAltId,
-                    dot, labelByDefault, rounding, precision, minAmount, styleOverride);
+            return new KindStyle(id, label, icon, iconBg, iconOverlay, format, colorHex, uiComponentId, uiComponentAltId,
+                    vfxId, particleFontId, particleIconId, particleBackgroundId, dot, labelByDefault, rounding, precision,
+                    minAmount, styleOverride);
         }
 
         public void register() {
@@ -428,10 +486,17 @@ public final class DamageNumbers {
             return null;
         }
         String label = null;
+        String icon = null;
+        String iconBg = null;
+        String iconOverlay = null;
         String format = null;
         String color = null;
         String ui = null;
         String uiAlt = null;
+        String vfx = null;
+        String particleFont = null;
+        String particleIcon = null;
+        String particleBackground = null;
         Boolean dot = null;
         Boolean labelByDefault = null;
         Rounding rounding = null;
@@ -451,10 +516,17 @@ public final class DamageNumbers {
             String value = kv[1].trim();
             switch (key) {
                 case "label" -> label = value;
+                case "icon" -> icon = value;
+                case "iconbg" -> iconBg = value;
+                case "iconoverlay" -> iconOverlay = value;
                 case "format" -> format = value;
                 case "color" -> color = value;
                 case "ui" -> ui = value;
                 case "uialt" -> uiAlt = value;
+                case "vfx" -> vfx = value;
+                case "particlefont" -> particleFont = value;
+                case "particleicon" -> particleIcon = value;
+                case "particlebackground" -> particleBackground = value;
                 case "dot" -> dot = parseBoolean(value, null);
                 case "rounding" -> rounding = parseRounding(value, null);
                 case "precision" -> precision = parseIntObj(value);
@@ -466,8 +538,8 @@ public final class DamageNumbers {
                 }
             }
         }
-        return new KindStyle(id, label, format, color, ui, uiAlt, dot, labelByDefault,
-                rounding, precision, min, styleOverride);
+        return new KindStyle(id, label, icon, iconBg, iconOverlay, format, color, ui, uiAlt, vfx, particleFont,
+                particleIcon, particleBackground, dot, labelByDefault, rounding, precision, min, styleOverride);
     }
 
     private static void parseAliasEntry(String entry) {
@@ -530,12 +602,21 @@ public final class DamageNumbers {
         }
     }
 
-    private static String applyTemplate(String format, String label, String amountText, String kindId) {
+    private static String applyTemplate(String format,
+                                        String icon,
+                                        String iconBg,
+                                        String iconOverlay,
+                                        String label,
+                                        String amountText,
+                                        String kindId) {
         if (format == null || format.isBlank()) {
             String text = (label == null || label.isBlank()) ? amountText : (label + " " + amountText);
             return text.trim();
         }
         String resolved = format
+                .replace("{iconBg}", defaultString(iconBg))
+                .replace("{iconOverlay}", defaultString(iconOverlay))
+                .replace("{icon}", defaultString(icon))
                 .replace("{label}", defaultString(label))
                 .replace("{amount}", defaultString(amountText))
                 .replace("{kind}", defaultString(kindId));

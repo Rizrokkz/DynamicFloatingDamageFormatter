@@ -1,0 +1,13 @@
+{
+    "Spawners":  [
+                     {
+                         "SpawnerId":  "FloatingDamage_HEAL_Digit_4",
+                         "PositionOffset":  {
+                                                "Z":  0
+                                            },
+                         "FixedRotation":  false
+                     }
+                 ],
+    "CullDistance":  128,
+    "IsImportant":  false
+}

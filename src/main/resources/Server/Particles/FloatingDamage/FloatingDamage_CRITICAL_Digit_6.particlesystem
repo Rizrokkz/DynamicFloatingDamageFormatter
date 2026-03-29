@@ -1,0 +1,13 @@
+{
+    "Spawners":  [
+                     {
+                         "SpawnerId":  "FloatingDamage_CRITICAL_Digit_6",
+                         "PositionOffset":  {
+                                                "Z":  0
+                                            },
+                         "FixedRotation":  false
+                     }
+                 ],
+    "CullDistance":  128,
+    "IsImportant":  false
+}

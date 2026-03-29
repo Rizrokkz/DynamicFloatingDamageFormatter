@@ -16,8 +16,8 @@
                                   },
     "ViewportMargin":  0.0,
     "Duration":  0.6,
-    "HitAngleModifierStrength":  1.0,
-    "FontSize":  32.0,
+    "HitAngleModifierStrength":  0.0,
+    "FontSize":  24.0,
     "TextColor":  "#008700",
     "AnimationEvents":  [
                             {

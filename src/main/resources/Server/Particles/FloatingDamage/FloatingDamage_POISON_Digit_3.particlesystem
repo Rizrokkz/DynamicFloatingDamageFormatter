@@ -1,0 +1,13 @@
+{
+    "Spawners":  [
+                     {
+                         "SpawnerId":  "FloatingDamage_POISON_Digit_3",
+                         "PositionOffset":  {
+                                                "Z":  0
+                                            },
+                         "FixedRotation":  false
+                     }
+                 ],
+    "CullDistance":  128,
+    "IsImportant":  false
+}
