@@ -1,0 +1,21 @@
+# Enforce LF for all text files
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.bmp binary
+*.tga binary
+*.dds binary
+*.wav binary
+*.ogg binary
+*.mp3 binary
+*.flac binary
+*.zip binary
+*.jar binary
+*.otf binary
+*.ttf binary
+*.woff binary
+*.woff2 binary

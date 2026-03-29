@@ -55,6 +55,31 @@ DamageNumbers.emit(damage);
 DamageNumbers.markSkipCombatText(damage);
 ```
 
+## Adapter Example (Damage Event Hook)
+
+Below is a minimal adapter pattern you can drop into your own mod. The idea is:
+listen to your game’s damage event, map it to a kind, and emit a number.
+
+```java
+import irai.mod.DynamicFloatingDamageFormatter.DamageNumbers;
+
+public final class DamageNumberAdapter {
+    // Replace DamageEvent with your engine's event type.
+    @Subscribe
+    public void onDamage(DamageEvent event) {
+        var target = event.getTarget();
+        var amount = event.getFinalDamage();
+
+        String kind = mapKind(event); // e.g., "FIRE", "POISON", "CRITICAL"
+
+        DamageNumbers.emit(event.getStore(), target.getReference(), amount, kind);
+        // Optional: if you also have a Damage object, you can call:
+        // DamageNumbers.attachTarget(event.getDamage(), target.getReference());
+        // DamageNumbers.markSkipCombatText(event.getDamage());
+        // DamageNumbers.emit(event.getDamage());
+    }
+}
+```
 ## Configuration
 
 The config file is loaded from:
@@ -118,6 +143,14 @@ Increase this if numbers disappear too far away.
 - Examples: `examples/Server/Entity/UI/*.json`
 - Tutorial: `TUTORIAL.md`
 
+## Changelog
+
+### Unreleased
+- Added FloatingDamage particle assets (digit atlas and per-kind digit spawners/systems).
+- Added icon textures and particle icon spawners.
+- Added particleFont and particleIcon examples to the config.
+- Added tutorial and example UI assets.
+- Expanded README with adapter guidance.
 ## Troubleshooting
 - JSON fails to load (Unexpected character: feff): ensure UTF-8 no BOM.
 - Icons not showing: ensure PNGs exist in `Common/Particles/Textures/CombatText/`.
