@@ -16,8 +16,51 @@ Use the adapter build if you want it to automatically hook damage events.
 2. Copy `examples/Server/Entity/UI/*.json` into your asset pack.
 3. Copy `examples/Server/Config/DamageNumberConfig.json` into your asset pack.
 
-That’s it. The adapter will emit combat text for any damage that matches your config.
+Thatâ€™s it. The adapter will emit combat text for any damage that matches your config.
 
+---
+
+**Hook & Register (Plugin Setup)**
+
+If you want the formatter to hook damage automatically, your plugin needs to:
+
+1. Load and apply `DamageNumberConfig.json`.
+2. Register a `DamageEventSystem` that emits the numbers (adapter system).
+
+Example plugin setup:
+
+```java
+import javax.annotation.Nonnull;
+
+import com.hypixel.hytale.server.core.plugin.JavaPlugin;
+import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.hypixel.hytale.server.core.util.Config;
+import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
+
+import irai.mod.DynamicFloatingDamageFormatter.DamageNumberConfig;
+import irai.mod.DynamicFloatingDamageFormatter.DamageNumbers;
+
+public final class MyPlugin extends JavaPlugin {
+    private final Config<DamageNumberConfig> damageConfig;
+
+    public MyPlugin(@Nonnull JavaPluginInit init) {
+        super(init);
+        this.damageConfig = this.withConfig("DamageNumberConfig", DamageNumberConfig.CODEC);
+    }
+
+    @Override
+    protected void setup() {
+        // Load config and apply it.
+        damageConfig.save().join();
+        DamageNumbers.applyConfig(damageConfig.get());
+
+        // Register your adapter system (extends DamageEventSystem).
+        this.getEntityStoreRegistry().registerSystem(new MyDamageNumberEST());
+    }
+}
+```
+
+If you don’t have an adapter system, you can still emit numbers manually using the core API.
 ---
 
 **Core API Usage (Code Integration)**
@@ -75,9 +118,9 @@ Config lives at:
 
 It uses three arrays:
 
-- `DEFAULTS` – global formatting rules
-- `KINDS` – per-kind styling
-- `ALIASES` – map damage cause ids to kinds
+- `DEFAULTS` â€“ global formatting rules
+- `KINDS` â€“ per-kind styling
+- `ALIASES` â€“ map damage cause ids to kinds
 
 Example:
 
@@ -128,10 +171,10 @@ Each `ui=...` points to a `Server/Entity/UI/*.json` asset with `"Type": "CombatT
 
 Key fields you can tweak:
 
-- `RandomPositionOffsetRange` – random X/Y offset on each hit
-- `HitboxOffset` – base offset
-- `AnimationEvents` – scale, fade, and timing
-- `HitAngleModifierStrength` – how much the hit angle affects motion
+- `RandomPositionOffsetRange` â€“ random X/Y offset on each hit
+- `HitboxOffset` â€“ base offset
+- `AnimationEvents` â€“ scale, fade, and timing
+- `HitAngleModifierStrength` â€“ how much the hit angle affects motion
 
 If you set `uiAlt`, the formatter alternates between primary and alt components to reduce overlap.
 
